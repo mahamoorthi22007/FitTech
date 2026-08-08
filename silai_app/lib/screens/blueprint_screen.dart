@@ -14,8 +14,9 @@ import 'package:silai_app/widgets/blueprint_glow_overlay.dart';
 import 'stitch_instructions_screen.dart';
 
 class BlueprintScreen extends StatefulWidget {
-  static const String machineIp = "172.16.63.111";
-  static const String serverPort = "5000";
+  static const String machineIp = "siai-backed.onrender.com";
+  static const String serverPort = "443";
+  static const String backendBaseUrl = "https://siai-backed.onrender.com";
 
   final String dressType;
   final bool skipToMeasurements;
@@ -724,7 +725,7 @@ class _StepBlueprintState extends State<_StepBlueprint> {
   Offset _canvasOffset = const Offset(15, 45); 
   Size _canvasSize = const Size(300, 300); 
 
-  String get _baseUrl => 'http://${widget.machineIp}:${widget.serverPort}';
+  String get _baseUrl => BlueprintScreen.backendBaseUrl;
 
   @override
   void dispose() {
@@ -1316,7 +1317,7 @@ class _StepFitCheckState extends State<_StepFitCheck> {
 
   // FIX: reuse the same machineIp/serverPort as the rest of the screen,
   // instead of a second hardcoded IP that can silently drift out of sync.
-  static const String _baseUrl = 'http://${BlueprintScreen.machineIp}:${BlueprintScreen.serverPort}';
+  static const String _baseUrl = BlueprintScreen.backendBaseUrl;
 
   Future<void> pickImage(bool isPerson) async {
     final XFile? file = await picker.pickImage(source: ImageSource.gallery);
