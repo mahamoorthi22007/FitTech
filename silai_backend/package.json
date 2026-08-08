@@ -1,8 +1,9 @@
 {
   "name": "silai_backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,9 +13,9 @@
   "dependencies": {
     "@elevenlabs/client": "^1.9.0",
     "@freesewing/brian": "^4.9.0",
-    "@freesewing/core": "^2.22.2",
+    "@freesewing/core": "^4.9.0",
     "@freesewing/models": "^4.9.0",
-    "@freesewing/plugin-bundle": "^2.22.2",
+    "@freesewing/plugin-bundle": "^4.9.0",
     "@google/generative-ai": "^0.24.1",
     "@gradio/client": "^2.3.0",
     "@huggingface/inference": "^4.13.20",
@@ -25,3 +26,4 @@
     "node-fetch": "^2.7.0"
   }
 }
+
