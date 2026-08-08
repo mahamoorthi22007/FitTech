@@ -1,0 +1,42 @@
+name: Build Flutter APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # Manual trigger button in GitHub UI
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.x'
+          channel: 'stable'
+          cache: true
+
+      - name: Get Flutter dependencies
+        run: flutter pub get
+        working-directory: silai_app
+
+      - name: Build APK (Release)
+        run: flutter build apk --release --no-tree-shake-icons
+        working-directory: silai_app
+
+      - name: Upload APK as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: silai-app-release
+          path: silai_app/build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 30
