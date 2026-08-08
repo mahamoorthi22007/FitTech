@@ -1,0 +1,10 @@
+node_modules/
+.env
+__pycache__/
+runs/
+dataset/
+*.pt
+*.onnx
+
+# macOS
+.DS_Store

@@ -1,0 +1,23 @@
+node_modules/
+.env
+__pycache__/
+runs/
+dataset/
+*.pt
+*.onnx
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
+
+# Secrets / credentials
+silai_backend/kaggle.json
+CatVTON_FreeColab.ipynb
+
+# Flutter build artifacts
+silai_app/build/
+silai_app/.dart_tool/
+silai_app/.packages
+silai_app/.flutter-plugins
+silai_app/.flutter-plugins-dependencies
